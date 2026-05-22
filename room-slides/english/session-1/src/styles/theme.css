@@ -1,0 +1,47 @@
+@import '@shared/styles/base.css';
+
+:root {
+  --en-indigo:  #4338ca;
+  --en-indigo2: #6366f1;
+  --en-violet:  #7c3aed;
+  --en-violet2: #6d28d9;
+
+  --primary:  var(--en-indigo);
+  --primary2: var(--en-indigo2);
+  --accent:   var(--en-violet);
+  --accent2:  var(--en-violet2);
+
+  --grad:        linear-gradient(130deg, var(--en-indigo), var(--en-indigo2));
+  --grad-r:      linear-gradient(130deg, var(--en-indigo2), var(--en-indigo));
+  --grad-accent: linear-gradient(130deg, var(--en-indigo), var(--en-violet));
+  --grad-flag:   linear-gradient(90deg, var(--en-indigo) 0%, var(--en-indigo2) 50%, var(--en-violet) 100%);
+
+  --bg:      #ffffff;
+  --bg-tint: #f0f0ff;
+  --bg-card: #ffffff;
+
+  --ink:       #1e1b4b;
+  --ink-dim:   rgba(30, 27, 75, 0.72);
+  --ink-faint: rgba(30, 27, 75, 0.5);
+
+  --border:   rgba(67, 56, 202, 0.14);
+  --border-h: rgba(124, 58, 237, 0.38);
+}
+
+.bg-light {
+  background: linear-gradient(135deg, #f0f0ff 0%, #f5f0ff 60%, #f8f0ff 100%);
+}
+
+.bg-english-section {
+  background: linear-gradient(140deg, #1e1b4b 0%, #312e81 45%, #3730a3 100%);
+  color: #ffffff;
+}
+
+.bg-english-accent {
+  background: linear-gradient(140deg, #4c1d95 0%, #6d28d9 45%, #7c3aed 100%);
+  color: #ffffff;
+}
+
+.bg-english-warm {
+  background: linear-gradient(135deg, #faf5ff 0%, #f5f0ff 50%, #f0f0ff 100%);
+}

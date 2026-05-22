@@ -1,0 +1,75 @@
+@import '@shared/styles/base.css';
+
+:root {
+  --fr-blue:  #002395;
+  --fr-blue2: #1a56db;
+  --fr-red:   #ED2939;
+  --fr-red2:  #c41e2a;
+  --fr-white: #ffffff;
+
+  --primary:  var(--fr-blue);
+  --primary2: var(--fr-blue2);
+  --accent:   var(--fr-red);
+  --accent2:  var(--fr-red2);
+
+  --grad:        linear-gradient(130deg, var(--fr-blue), var(--fr-blue2));
+  --grad-r:      linear-gradient(130deg, var(--fr-blue2), var(--fr-blue));
+  --grad-accent: linear-gradient(130deg, var(--fr-blue), var(--fr-red));
+  --grad-flag:   linear-gradient(90deg, var(--fr-blue) 0%, #fff 50%, var(--fr-red) 100%);
+
+  --bg:      #ffffff;
+  --bg-tint: #f0f4ff;
+  --bg-card: #ffffff;
+
+  --ink:       #0d1a4a;
+  --ink-dim:   rgba(13, 26, 74, 0.72);
+  --ink-faint: rgba(13, 26, 74, 0.5);
+
+  --border:   rgba(0, 35, 149, 0.14);
+  --border-h: rgba(237, 41, 57, 0.38);
+}
+
+.bg-light {
+  background: linear-gradient(135deg, #f0f4ff 0%, #fef0f1 60%, #fff8f8 100%);
+}
+
+.bg-french-section {
+  background: linear-gradient(140deg, #001a73 0%, #002395 45%, #1a3fbd 100%);
+  color: #ffffff;
+}
+
+.bg-french-red {
+  background: linear-gradient(140deg, #a01525 0%, #c41e2a 45%, #ed2939 100%);
+  color: #ffffff;
+}
+
+.bg-french-warm {
+  background: linear-gradient(135deg, #fff8f0 0%, #fef0f1 50%, #fff0f8 100%);
+}
+
+.pill-red {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(237, 41, 57, 0.08);
+  border: 1.5px solid rgba(237, 41, 57, 0.28);
+  border-radius: 999px;
+  padding: 10px 28px;
+  font-size: var(--ts-tiny);
+  font-weight: 600;
+  color: var(--fr-red2);
+  letter-spacing: 0.07em;
+}
+
+.card-blue {
+  background: linear-gradient(140deg, rgba(0, 35, 149, 0.06) 0%, rgba(26, 86, 219, 0.03) 100%);
+  border: 1.5px solid rgba(0, 35, 149, 0.16);
+  border-radius: 20px;
+  padding: 36px 40px;
+}
+
+.card-red {
+  background: linear-gradient(140deg, rgba(237, 41, 57, 0.06) 0%, rgba(196, 30, 42, 0.03) 100%);
+  border: 1.5px solid rgba(237, 41, 57, 0.16);
+  border-radius: 20px;
+  padding: 36px 40px;
+}
