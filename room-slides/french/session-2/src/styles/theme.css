@@ -1,0 +1,75 @@
+@import '@shared/styles/base.css';
+
+:root {
+  --fr2-burgundy:  #5C1A35;
+  --fr2-burgundy2: #7D2749;
+  --fr2-gold:      #C49A3C;
+  --fr2-gold2:     #A07C2A;
+  --fr2-cream:     #FFF8EE;
+
+  --primary:  var(--fr2-burgundy);
+  --primary2: var(--fr2-burgundy2);
+  --accent:   var(--fr2-gold);
+  --accent2:  var(--fr2-gold2);
+
+  --grad:        linear-gradient(130deg, var(--fr2-burgundy), var(--fr2-burgundy2));
+  --grad-r:      linear-gradient(130deg, var(--fr2-burgundy2), var(--fr2-burgundy));
+  --grad-accent: linear-gradient(130deg, var(--fr2-burgundy), var(--fr2-gold));
+  --grad-flag:   linear-gradient(90deg, var(--fr2-burgundy) 0%, #F5E2C4 50%, var(--fr2-gold) 100%);
+
+  --bg:      #FFFBF5;
+  --bg-tint: #FFF3E8;
+  --bg-card: #FFFFFF;
+
+  --ink:       #2C1218;
+  --ink-dim:   rgba(44, 18, 24, 0.72);
+  --ink-faint: rgba(44, 18, 24, 0.5);
+
+  --border:   rgba(92, 26, 53, 0.14);
+  --border-h: rgba(196, 154, 60, 0.38);
+}
+
+.bg-light {
+  background: linear-gradient(135deg, #FFF5EC 0%, #FFF0E8 60%, #FFF8F2 100%);
+}
+
+.bg-session2-section {
+  background: linear-gradient(140deg, #3D0F22 0%, #5C1A35 45%, #7D2749 100%);
+  color: #ffffff;
+}
+
+.bg-session2-gold {
+  background: linear-gradient(140deg, #7A5010 0%, #A07C2A 45%, #C49A3C 100%);
+  color: #ffffff;
+}
+
+.bg-session2-warm {
+  background: linear-gradient(135deg, #FFF8EE 0%, #FFF0E2 50%, #FFF5EC 100%);
+}
+
+.pill-gold {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(196, 154, 60, 0.10);
+  border: 1.5px solid rgba(196, 154, 60, 0.32);
+  border-radius: 999px;
+  padding: 10px 28px;
+  font-size: var(--ts-tiny);
+  font-weight: 600;
+  color: var(--fr2-gold2);
+  letter-spacing: 0.07em;
+}
+
+.card-burgundy {
+  background: linear-gradient(140deg, rgba(92, 26, 53, 0.06) 0%, rgba(125, 39, 73, 0.03) 100%);
+  border: 1.5px solid rgba(92, 26, 53, 0.16);
+  border-radius: 20px;
+  padding: 36px 40px;
+}
+
+.card-gold {
+  background: linear-gradient(140deg, rgba(196, 154, 60, 0.08) 0%, rgba(160, 124, 42, 0.04) 100%);
+  border: 1.5px solid rgba(196, 154, 60, 0.20);
+  border-radius: 20px;
+  padding: 36px 40px;
+}
