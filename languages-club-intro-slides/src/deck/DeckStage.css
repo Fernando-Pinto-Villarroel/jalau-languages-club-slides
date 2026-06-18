@@ -1,0 +1,175 @@
+.deck-viewport {
+  position: fixed;
+  inset: 0;
+  background: #d0e4f8;
+  overflow: hidden;
+}
+
+/* Simple overflow-hidden container; canvas is positioned absolutely inside */
+.deck-stage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.deck-canvas {
+  position: absolute;
+  background: #fff;
+  will-change: transform;
+  /* top / left / width / height / transform are set via inline style */
+}
+
+/* ── Slides stack absolutely filling the full canvas ── */
+.deck-slide {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+.deck-slide[data-active] {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+/* Mirrors the original ::slotted(*) rule — fills the canvas and adds slide padding */
+.deck-slide > * {
+  position: absolute !important;
+  inset: 0 !important;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: var(--pt) var(--px) var(--pb);
+  overflow: hidden;
+}
+
+/* ── Navigation overlay ── */
+.deck-overlay {
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  transform: translate(-50%, 6px) scale(0.92);
+  filter: blur(6px);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  background: #000;
+  color: #fff;
+  border-radius: 999px;
+  font-size: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-feature-settings: "tnum" 1;
+  letter-spacing: 0.01em;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 260ms ease, transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1), filter 260ms ease;
+  transform-origin: center bottom;
+  z-index: 2147483000;
+  user-select: none;
+}
+.deck-overlay[data-visible] {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0) scale(1);
+  filter: blur(0);
+}
+
+.deck-overlay-btn {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font: inherit;
+  cursor: default;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 999px;
+  transition: background 140ms ease, color 140ms ease;
+}
+.deck-overlay-btn:hover  { background: rgba(255, 255, 255, 0.12); color: #fff; }
+.deck-overlay-btn:active { background: rgba(255, 255, 255, 0.18); }
+.deck-overlay-btn:focus  { outline: none; }
+.deck-overlay-btn svg    { width: 14px; height: 14px; display: block; }
+
+.deck-overlay-count {
+  font-variant-numeric: tabular-nums;
+  color: #fff;
+  font-weight: 500;
+  padding: 0 8px;
+  min-width: 42px;
+  text-align: center;
+  font-size: 12px;
+}
+.deck-overlay-count .sep   { color: rgba(255, 255, 255, 0.45); margin: 0 3px; font-weight: 400; }
+.deck-overlay-count .total { color: rgba(255, 255, 255, 0.55); }
+
+.deck-overlay-divider {
+  width: 1px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.18);
+  margin: 0 2px;
+}
+
+.deck-overlay-reset {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 0 10px 0 12px;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.72);
+}
+.deck-overlay-reset .kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 10px;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+}
+
+/* ── Print: one page per slide ── */
+@media print {
+  .deck-viewport { position: static; background: none; overflow: visible; }
+  .deck-stage    { position: static; overflow: visible; }
+  .deck-canvas   {
+    position: static !important;
+    transform: none !important;
+    background: none;
+  }
+  .deck-slide    {
+    position: relative !important;
+    inset: auto !important;
+    width: 1920px !important;
+    height: 1080px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto;
+    break-after: page;
+    page-break-after: always;
+    break-inside: avoid;
+    overflow: hidden;
+  }
+  .deck-slide > * {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .deck-slide:last-child { break-after: auto; page-break-after: auto; }
+  .deck-overlay          { display: none !important; }
+}
